@@ -78,13 +78,13 @@ while True:
         t2 = d.hour
         time.sleep(2)
         #print(t2)
-        if t2 == 14 and sen_mail_count == 0:
+        if t2 == 0 and sen_mail_count == 0:
             print("send wish")
             print(sen_mail_count)
             current_date = d.strftime('%d/%m/%Y')
             current_date_is_birth_date(current_date)
             sen_mail_count = 1
-        if t2 != 14:
+        if t2 != 0:
             sen_mail_count = 0
 
     temp = temp + 1
