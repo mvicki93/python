@@ -51,19 +51,20 @@ def current_date_is_birth_date(current_date):
         #print(type(data[0]))
         if current_date[0:5] == data1[0:5]:
             #print()
-            send_mail(data[2])
+            send_mail(data[2], data[1])
 
 
-def send_mail(target_mail):
+def send_mail(target_mail, name):
     smtp = server = smtplib.SMTP('smtp.gmail.com', 587)
     smtp.starttls()
     # Next, log in to the server
     server.login("bdayuwish@gmail.com", "sansel123")
     msg = "Smile Plz!!"
-    message = 'Subject: {}\n\n{}'.format('Happy Birth Day ', msg)
+    message = 'Subject: {}\n\n{}'.format('Happy Birth Day ' + name, msg)
     # Send the mail
 
     server.sendmail("bdayuwish@gmail.com", target_mail, message)
+    print(message)
 
 temp = 0
 sen_mail_count = 0
@@ -77,21 +78,13 @@ while True:
         t2 = d.hour
         time.sleep(2)
         #print(t2)
-        if t2 == 13 and sen_mail_count == 0:
+        if t2 == 14 and sen_mail_count == 0:
             print("send wish")
             print(sen_mail_count)
             current_date = d.strftime('%d/%m/%Y')
             current_date_is_birth_date(current_date)
             sen_mail_count = 1
-        if t2 != 13:
+        if t2 != 14:
             sen_mail_count = 0
 
     temp = temp + 1
-
-
-
-
-
-
-
-
